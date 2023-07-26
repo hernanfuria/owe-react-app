@@ -6,7 +6,7 @@ import { GlobalContext } from "./context/GlobalContext"
 
 
 export const NamesForm = () => {
-    const {names, setNames, defineNames} = useContext(GlobalContext)
+    const {names, setNames, setNamesDefined, navigate} = useContext(GlobalContext)
 
 
     const [idsCounter, setIdsCounter] = useState(0)
@@ -16,7 +16,8 @@ export const NamesForm = () => {
     }
 
     const handleSubmit = () => {
-        defineNames()
+        setNamesDefined(true)
+        navigate('/paymentslist')
     }
 
     const handleNewPerson = () => {
