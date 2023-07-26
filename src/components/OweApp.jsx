@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import { GlobalProvider } from "./context/GlobalProvider"
 import { NamesForm } from "./NamesForm"
 import { PaymentsList } from "./PaymentsList"
+import { NewPaymentForm } from "./NewPaymentForm"
 
 export const OweApp = () => {
     return (
@@ -13,8 +14,8 @@ export const OweApp = () => {
             <Routes>
                 <Route path="/" element={ <NamesForm /> } />
                 <Route path="/paymentslist" element={ <PaymentsList /> } />
-                {/*
                 <Route path="/newpayment" element={ <NewPaymentForm /> } />
+                {/*
                 <Route path="/balance" element={ <Balance /> } />
                 */}
                 <Route path="/*" element={ <Navigate to='/' /> } />
