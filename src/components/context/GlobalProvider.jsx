@@ -32,7 +32,7 @@ export const GlobalProvider = ({children}) => {
     // const [user, setUser] = useState()
 
     const [names, setNames] = useState([])
-    const [payments, setPayments] = useState(testPayments)
+    const [payments, setPayments] = useState([])
     const [namesDefined, setNamesDefined] = useState(false)
 
     const navigate = useNavigate()

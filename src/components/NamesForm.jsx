@@ -1,13 +1,19 @@
 // import { NamesFormHook } from "../hooks/NamesFormHook"
 
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { NameInputLine } from "./NameInputLine"
 import { GlobalContext } from "./context/GlobalContext"
 
 
 export const NamesForm = () => {
-    const {names, setNames, setNamesDefined, navigate} = useContext(GlobalContext)
+    const {names, setNames, setPayments, setNamesDefined, navigate} = useContext(GlobalContext)
 
+
+    useEffect(() => {
+        setNames([])
+        setPayments([])
+    }, [])
+    
 
     const [idsCounter, setIdsCounter] = useState(0)
 
