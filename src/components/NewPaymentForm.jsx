@@ -2,9 +2,9 @@ import { useContext, useState } from "react"
 import { GlobalContext } from "./context/GlobalContext"
 
 export const NewPaymentForm = () => {
-    const {names, payments, setPayments, navigate} = useContext(GlobalContext)
+    const {names, payments, setPayments, paymentsIdsCounter, setPaymentsIdsCounter, navigate} = useContext(GlobalContext)
 
-    const [payer, setPayer] = useState('')
+    const [payer, setPayer] = useState(names[0].name)
     const [amount, setAmount] = useState(0)
     const [consumers, setConsumers] = useState(names.map(person => {return person.name}))
 
@@ -26,10 +26,12 @@ export const NewPaymentForm = () => {
                 {
                     payer: payer,
                     amount: amount,
-                    consumers: consumers
+                    consumers: consumers,
+                    id: paymentsIdsCounter
                 }
             ]
         )
+        setPaymentsIdsCounter(paymentsIdsCounter + 1)
         navigate('/paymentslist')
     }
 

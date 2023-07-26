@@ -1,8 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { GlobalContext } from './context/GlobalContext'
+import { PaymentsListItem } from './PaymentsListItem'
 
 export const PaymentsList = () => {
-    const {payments, setNamesDefined, navigate} = useContext(GlobalContext)
+    const {payments, setPayments, setNamesDefined, navigate} = useContext(GlobalContext)
+
+    
 
     const backToNames = () => {
         setNamesDefined(false)
@@ -13,6 +16,10 @@ export const PaymentsList = () => {
         navigate('/newpayment')
     }
 
+    const removePayment = (paymentId) => {
+        setPayments(payments.filter(payment => payment.id != paymentId))
+    }
+
     return (
         <>
             <h1>Payments done</h1>
@@ -21,14 +28,7 @@ export const PaymentsList = () => {
             {
                 payments.map(payment => {
                     return (
-                        <div>
-                            <h2>{payment.payer} - {payment.amount}</h2>
-                            {payment.consumers.map(consumer => {
-                                return (
-                                    <span>{consumer} </span>
-                                )
-                            })}
-                        </div>
+                        <PaymentsListItem payment={payment} removePayment={removePayment} />
                     )
                 })
             }

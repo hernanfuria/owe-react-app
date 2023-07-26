@@ -33,6 +33,7 @@ export const GlobalProvider = ({children}) => {
 
     const [names, setNames] = useState([])
     const [payments, setPayments] = useState([])
+    const [paymentsIdsCounter, setPaymentsIdsCounter] = useState(0)
     const [namesDefined, setNamesDefined] = useState(false)
 
     const navigate = useNavigate()
@@ -44,6 +45,8 @@ export const GlobalProvider = ({children}) => {
             setNames, 
             payments, 
             setPayments, 
+            paymentsIdsCounter,
+            setPaymentsIdsCounter, 
             namesDefined, 
             setNamesDefined, 
             navigate
