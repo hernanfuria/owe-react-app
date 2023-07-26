@@ -1,9 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import { OweApp } from './components/OweApp.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <OweApp />
-  </React.StrictMode>,
+    <React.StrictMode>
+        <BrowserRouter>
+            <OweApp />
+        </BrowserRouter>
+    </React.StrictMode>,
 )

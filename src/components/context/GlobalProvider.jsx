@@ -1,4 +1,4 @@
-// import { useState } from "react"
+import { useState } from "react"
 import { GlobalContext } from "./GlobalContext"
 
 
@@ -12,8 +12,16 @@ export const GlobalProvider = ({children}) => {
 
     // const [user, setUser] = useState()
 
+    const [names, setNames] = useState([])
+    // const [payments, setPayments] = useState([])
+    const [namesDefined, setNamesDefined] = useState(false)
+
+    const defineNames = () => {
+        setNamesDefined(true)
+    }
+
     return (
-        <GlobalContext.Provider> {/* value={{user, setUser}} */}
+        <GlobalContext.Provider value={{names, setNames, defineNames}}>
             {children}
         </GlobalContext.Provider>
     )

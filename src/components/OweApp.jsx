@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom"
 import { GlobalProvider } from "./context/GlobalProvider"
+import { NamesForm } from "./NamesForm"
 
 export const OweApp = () => {
     return (
