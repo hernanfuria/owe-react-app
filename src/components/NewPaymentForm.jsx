@@ -10,34 +10,53 @@ export const NewPaymentForm = () => {
 
     const handlePayerSelectChange = ({target}) => {
         setPayer(target.value)
-        // console.log(payer)
     }
 
     const handleAmountInputChange = ({target}) => {
         setAmount(target.value)
-        // console.log(amount)
+    }
+
+    const handleConsumerCheckboxChange = ({target}) => {
+        const changedConsumer = target.value
+        const isChecked = target.checked
+
+        let newConsumers = []
+        if (isChecked) {
+            newConsumers.push(changedConsumer)
+        }
+
+        for (const consumer of consumers) {
+            if (consumer != changedConsumer && consumers.includes(consumer)) {
+                newConsumers.push(consumer)
+            }
+        }
+        setConsumers(newConsumers)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
+
+        let sortedConsumers = []
+        for (const person of names) {
+            if (consumers.includes(person.name)) {
+                sortedConsumers.push(person.name)
+            }
+        }
+        console.log(sortedConsumers)
+
         setPayments(
             [
                 ...payments,
                 {
                     payer: payer,
                     amount: amount,
-                    consumers: consumers,
+                    consumers: sortedConsumers,
                     id: paymentsIdsCounter
                 }
             ]
         )
         setPaymentsIdsCounter(paymentsIdsCounter + 1)
         navigate('/paymentslist')
-    }
-
-
-    const placeHolder = () => {
-
     }
 
     return (
@@ -61,8 +80,21 @@ export const NewPaymentForm = () => {
 
                 {
                     names.map(person => {
+                        const check = consumers.includes(person.name)
                         return (
-                            <span>{person.name}</span>
+                            <>
+                                <label>
+                                    <input 
+                                        type="checkbox" 
+                                        checked={check}
+                                        id={person.name} 
+                                        value={person.name} 
+                                        onChange={handleConsumerCheckboxChange}
+                                    /> 
+                                    {person.name}
+                                </label>
+                                <br />
+                            </>
                         )
                     })
                 }
