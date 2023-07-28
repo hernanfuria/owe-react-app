@@ -61,6 +61,28 @@ export class DebtMatrix {
          * Subtracts matrix2 from matrix1 (matrix1 - matrix2), and returns the result.
          */
 
+        if (matrix1.length == matrix2.length && matrix1[0].length == matrix2[0].length) {
+            const rows = matrix1.length
+            const cols = matrix1[0].length
+
+            let result = [];
+            for (let row = 0; row < rows; row++) {
+                result.push([])
+                for (let col = 0; col < cols; col++) {
+                    result[result.length - 1].push(0)
+                }
+            }
+
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    result[row][col] = matrix1[row][col] - matrix2[row][col]
+                }
+            }
+
+            return result
+
+        }
+
         return null
     }
 
@@ -119,11 +141,11 @@ export class DebtMatrix {
          */
 
         const transposed = DebtMatrix.#transpose(this.matrix);
-        // const subtracted = DebtMatrix.#subtractMatrices(this.matrix, transposed);
+        const subtracted = DebtMatrix.#subtractMatrices(this.matrix, transposed);
         // const cleaned = DebtMatrix.#removeRedundantData(subtracted);
         // const simplified = DebtMatrix.#simplifyMatrix(cleaned);
         // return DebtMatrix.#getListOfDebts(simplified);
 
-        return transposed
+        return subtracted
     }
 }
