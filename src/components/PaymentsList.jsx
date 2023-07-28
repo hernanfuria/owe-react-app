@@ -20,6 +20,10 @@ export const PaymentsList = () => {
         setPayments(payments.filter(payment => payment.id != paymentId))
     }
 
+    const seeBalance = () => {
+        navigate('/balance')
+    }
+
     return (
         <>
             <h1>Payments done</h1>
@@ -35,6 +39,7 @@ export const PaymentsList = () => {
 
             <button onClick={backToNames}>Back to names</button>
             <button onClick={newPayment}>New payment</button>
+            <button onClick={seeBalance}>See balance!</button>
 
 
         </>
