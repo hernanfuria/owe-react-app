@@ -5,7 +5,7 @@ export class DebtMatrix {
          *      names: Array - list of names of the people involved in the spending calculations.
          */
 
-        this.names = names;
+        this.names = [ ...names ];
         this.matrix = [];
 
         for (const name of names) {
@@ -36,7 +36,24 @@ export class DebtMatrix {
          * Takes a matrix as argument and returns the transpose
          */
 
-        return null
+        const rows = matrix.length
+        const cols = matrix[0].length
+
+        let transposed = [];
+        for (let col = 0; col < cols; col++) {
+            transposed.push([])
+            for (let row = 0; row < rows; row++) {
+                transposed[transposed.length - 1].push(0)
+            }
+        }
+
+        for (let col = 0; col < cols; col++) {
+            for (let row = 0; row < rows; row++) {
+                transposed[row][col] = matrix[col][row]
+            }
+        }
+
+        return transposed
     }
 
     static #subtractMatrices (matrix1, matrix2) {
@@ -102,9 +119,11 @@ export class DebtMatrix {
          */
 
         const transposed = DebtMatrix.#transpose(this.matrix);
-        const subtracted = DebtMatrix.#subtractMatrices(this.matrix, transposed);
-        const cleaned = DebtMatrix.#removeRedundantData(subtracted);
-        const simplified = DebtMatrix.#simplifyMatrix(cleaned);
-        return DebtMatrix.#getListOfDebts(simplified);
+        // const subtracted = DebtMatrix.#subtractMatrices(this.matrix, transposed);
+        // const cleaned = DebtMatrix.#removeRedundantData(subtracted);
+        // const simplified = DebtMatrix.#simplifyMatrix(cleaned);
+        // return DebtMatrix.#getListOfDebts(simplified);
+
+        return transposed
     }
 }

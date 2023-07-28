@@ -11,6 +11,7 @@ export const Balance = () => {
             debtMatrix.addPayment(payment)
         }
         console.log(debtMatrix.matrix)
+        console.log(debtMatrix.resolve())
 
 
     }, [])
