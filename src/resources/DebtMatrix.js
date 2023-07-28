@@ -1,4 +1,4 @@
-class DebtMatrix {
+export class DebtMatrix {
     constructor(names) {
         /**
          * Parameters
@@ -7,8 +7,9 @@ class DebtMatrix {
 
         this.names = names;
         this.matrix = [];
+
         for (const name of names) {
-            this.matrix.push([]);
+            this.matrix.push(names.map(person => {return 0}));
         }
     }
 

@@ -4,9 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { OweApp } from './components/OweApp.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <BrowserRouter>
+    <BrowserRouter>
+        {/*<React.StrictMode>*/}
             <OweApp />
-        </BrowserRouter>
-    </React.StrictMode>,
+        {/*</React.StrictMode>,*/}
+    </BrowserRouter>
 )

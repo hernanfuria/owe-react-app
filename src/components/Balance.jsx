@@ -1,8 +1,20 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { GlobalContext } from "./context/GlobalContext"
+import { DebtMatrix } from "../resources/DebtMatrix"
 
 export const Balance = () => {
-    const {payments, navigate} = useContext(GlobalContext)
+    const {names, payments, navigate} = useContext(GlobalContext)
+
+    useEffect(() => {
+        let debtMatrix = new DebtMatrix(names.map(person => {return person.name}));
+        for (const payment of payments) {
+            debtMatrix.addPayment(payment)
+        }
+        console.log(debtMatrix.matrix)
+
+
+    }, [])
+    
 
     const backToPayments = () => {
         navigate('/paymentslist')
