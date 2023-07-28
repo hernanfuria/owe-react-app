@@ -92,7 +92,26 @@ export class DebtMatrix {
          * and returns the result.
          */
 
-        return null
+        const rows = matrix.length
+        const cols = matrix[0].length
+
+        let result = [];
+        for (let row = 0; row < rows; row++) {
+            result.push([])
+            for (let col = 0; col < cols; col++) {
+                result[result.length - 1].push(0)
+            }
+        }
+
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                if (row <= col) {
+                    result[row][col] = matrix[row][col]
+                }
+            }
+        }
+
+        return result
     }
 
     static #simplifyMatrix (matrix) {
@@ -140,12 +159,27 @@ export class DebtMatrix {
          * where 'giver' represents the person who owes the 'amount' of money to the 'receiver' person.
          */
 
+        console.log('matrix')
+        console.log(this.matrix)
+
         const transposed = DebtMatrix.#transpose(this.matrix);
+        console.log('transposed')
+        console.log(transposed)
+
         const subtracted = DebtMatrix.#subtractMatrices(this.matrix, transposed);
-        // const cleaned = DebtMatrix.#removeRedundantData(subtracted);
+        console.log('subtracted')
+        console.log(subtracted)
+
+        const cleaned = DebtMatrix.#removeRedundantData(subtracted);
+        console.log('cleaned')
+        console.log(cleaned)
+
         // const simplified = DebtMatrix.#simplifyMatrix(cleaned);
+        // console.log('simplified')
+        // console.log(simplified)
+
         // return DebtMatrix.#getListOfDebts(simplified);
 
-        return subtracted
+        return cleaned
     }
 }

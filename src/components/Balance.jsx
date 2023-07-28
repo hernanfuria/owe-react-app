@@ -10,8 +10,9 @@ export const Balance = () => {
         for (const payment of payments) {
             debtMatrix.addPayment(payment)
         }
-        console.log(debtMatrix.matrix)
-        console.log(debtMatrix.resolve())
+        // console.log(debtMatrix.matrix)
+        // console.log(debtMatrix.resolve())
+        debtMatrix.resolve()
 
 
     }, [])
