@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "./context/GlobalContext"
 import { DebtMatrix } from "../resources/DebtMatrix"
+import { TotalPayedList } from "./TotalPayedList"
 
 export const Balance = () => {
     const {names, payments, navigate} = useContext(GlobalContext)
@@ -24,6 +25,8 @@ export const Balance = () => {
     return (
         <>
             <div>Balance</div>
+
+            <TotalPayedList />
 
             {
                 listOfDebts.map(debt => {
