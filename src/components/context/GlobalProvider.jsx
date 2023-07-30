@@ -3,11 +3,20 @@ import { GlobalContext } from "./GlobalContext"
 import { useNavigate } from "react-router-dom"
 
 
-// const user = {
-//     id: 132,
-//     name: 'asd lkjjk',
-//     mail: 'asd@dfg.com',
-// }
+const testNames = [
+    {
+        name: 'juan',
+        id: 1,
+    },
+    {
+        name: 'carlos',
+        id: 2,
+    },
+    {
+        name: 'roberto',
+        id: 3,
+    }
+]
 
 const testPayments = [
     {
@@ -31,8 +40,8 @@ export const GlobalProvider = ({children}) => {
 
     // const [user, setUser] = useState()
 
-    const [names, setNames] = useState([])
-    const [payments, setPayments] = useState([])
+    const [names, setNames] = useState(testNames)
+    const [payments, setPayments] = useState(testPayments)
     const [paymentsIdsCounter, setPaymentsIdsCounter] = useState(0)
     const [namesDefined, setNamesDefined] = useState(false)
 
