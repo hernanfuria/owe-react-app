@@ -8,7 +8,7 @@ import { Balance } from "./Balance"
 export const OweApp = () => {
     return (
         <GlobalProvider>
-            <h1>OWE</h1>
+            <h1 className="logo">OWE</h1>
             <hr />
             
             

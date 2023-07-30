@@ -12,18 +12,23 @@ export const NameInputLine = ({names, setNames, name, id, handleRemovePerson}) =
     }
 
     return (
-        <div className="form-line">
-            <label htmlFor={`name${id}`}>Name</label>
+        <div className="names-form-line">
+            <label className="form-label" htmlFor={`name${id}`}>Name</label>
             <input 
                 type="text" 
                 name={`name${id}`} 
                 id={id}
                 value={name} 
-                className="marker-name"
+                className="form-input"
                 onChange={(event) => handleInputChange(event)} 
                 required
             />
-            <button onClick={() => handleRemovePerson(id)}>Remove</button>
+            <button 
+                className="discard-button"
+                onClick={() => handleRemovePerson(id)}
+            >
+                Remove
+            </button>
         </div>
     )
 }
