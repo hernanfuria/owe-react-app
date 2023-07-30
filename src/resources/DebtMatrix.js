@@ -119,10 +119,30 @@ export class DebtMatrix {
          * Does the operations necesary to minimize the number of debts, returns the simplified matrix
          */
 
-        return null
+        const rows = matrix.length
+        const cols = matrix[0].length
+
+        // copy of the input matrix
+        let result = [];
+        for (let row = 0; row < rows; row++) {
+            result.push([])
+            for (let col = 0; col < cols; col++) {
+                result[result.length - 1].push(matrix[row][col])
+            }
+        }
+
+        for (let col = cols - 1; col > 1; col--) {
+            for (let row = 0; row < col - 1; row++) {
+                result[col - 1][col] += result[row][col]
+                result[row][col - 1] += result[row][col]
+                result[row][col] = 0
+            }
+        }
+
+        return result
     }
 
-    static #getListOfDebts (names, matrix) {
+    #getListOfDebts (matrix) {
         /**
          * Constructs the array
          *      [
@@ -139,7 +159,34 @@ export class DebtMatrix {
          * using the simplified matrix, and returns it.
          */
 
-        return null
+        let listOfDebts = []
+
+        const rows = matrix.length
+
+        for (let row = 0; row < rows - 1; row++) {
+            const col = row + 1
+            const debt = matrix[row][col]
+            if (debt > 0) {
+                listOfDebts.push(
+                    {
+                        giver: this.names[col],
+                        amount: debt,
+                        receiver: this.names[row]
+                    }
+                )
+            }
+            if (debt < 0) {
+                listOfDebts.push(
+                    {
+                        giver: this.names[row],
+                        amount: -debt,
+                        receiver: this.names[col]
+                    }
+                )
+            }
+        }
+
+        return listOfDebts
     }
 
     resolve () {
@@ -174,12 +221,10 @@ export class DebtMatrix {
         console.log('cleaned')
         console.log(cleaned)
 
-        // const simplified = DebtMatrix.#simplifyMatrix(cleaned);
-        // console.log('simplified')
-        // console.log(simplified)
+        const simplified = DebtMatrix.#simplifyMatrix(cleaned);
+        console.log('simplified')
+        console.log(simplified)
 
-        // return DebtMatrix.#getListOfDebts(simplified);
-
-        return cleaned
+        return this.#getListOfDebts(simplified);
     }
 }
