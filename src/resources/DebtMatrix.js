@@ -206,24 +206,24 @@ export class DebtMatrix {
          * where 'giver' represents the person who owes the 'amount' of money to the 'receiver' person.
          */
 
-        console.log('matrix')
-        console.log(this.matrix)
+        //  console.log('matrix')
+        //  console.log(this.matrix)
 
         const transposed = DebtMatrix.#transpose(this.matrix);
-        console.log('transposed')
-        console.log(transposed)
+        // console.log('transposed')
+        // console.log(transposed)
 
         const subtracted = DebtMatrix.#subtractMatrices(this.matrix, transposed);
-        console.log('subtracted')
-        console.log(subtracted)
+        // console.log('subtracted')
+        // console.log(subtracted)
 
         const cleaned = DebtMatrix.#removeRedundantData(subtracted);
-        console.log('cleaned')
-        console.log(cleaned)
+        // console.log('cleaned')
+        // console.log(cleaned)
 
         const simplified = DebtMatrix.#simplifyMatrix(cleaned);
-        console.log('simplified')
-        console.log(simplified)
+        // console.log('simplified')
+        // console.log(simplified)
 
         return this.#getListOfDebts(simplified);
     }

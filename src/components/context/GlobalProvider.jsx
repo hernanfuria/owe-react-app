@@ -34,6 +34,11 @@ const testPayments = [
         amount: 300,
         consumers: ['juan', 'carlos', 'roberto']
     },
+    {
+        payer: 'roberto',
+        amount: 400,
+        consumers: ['carlos', 'roberto']
+    }
 ]
 
 export const GlobalProvider = ({children}) => {

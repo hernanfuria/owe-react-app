@@ -18,19 +18,25 @@ export const TotalPayedList = () => {
         for (const payment of payments) {
             for (let p of payed) {
                 if (p.name == payment.payer) {
-                    p.amount += parseInt(payment.amount)
+                    p.amount = parseInt(p.amount) + parseInt(payment.amount)
                 }
             }
         }
-        setTotalPayed(payed)
+        console.log(payed)
+        setTotalPayed([ ...payed ])
+        console.log(totalPayed)
     }, [])
     
 
     return (
         <>
+            <h1>Total Spendings</h1>
+            <br />
             {
                 totalPayed.map(payed => {
-                    <TotalPayedListItem payer={payed.payer} amount={payed.amount} key={payed.payer} />
+                    return (
+                        <TotalPayedListItem payer={payed.name} amount={payed.amount} key={payed.payer} />
+                    )
                 })
             }
         </>
