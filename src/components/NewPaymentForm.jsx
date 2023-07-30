@@ -59,49 +59,55 @@ export const NewPaymentForm = () => {
         navigate('/paymentslist')
     }
 
+    const cancelNewPayment = () => {
+        navigate('/paymentslist')
+    }
+
     return (
         <form className="payment-input-form" onSubmit={handleSubmit}>
-                <span className="form-title">New payment</span>
-                <br />
+            <span className="form-title">New payment</span>
+            <br />
 
-                <label htmlFor="payer-name">Person who payed</label>
-                <select name="payer-name" id="select-payer-name" onChange={handlePayerSelectChange}>
-                    {
-                        names.map(person => {
-                            return (
-                                <option value={person.name}>{person.name}</option>
-                            )
-                        })
-                    }
-                </select>
-
-                <label htmlFor="amount-payed">Amount</label>
-                <input type="number" name="amount-payed" onChange={handleAmountInputChange} />
-
+            <label htmlFor="payer-name">Person who payed</label>
+            <select name="payer-name" id="select-payer-name" onChange={handlePayerSelectChange}>
                 {
                     names.map(person => {
-                        const check = consumers.includes(person.name)
                         return (
-                            <>
-                                <label>
-                                    <input 
-                                        type="checkbox" 
-                                        checked={check}
-                                        id={person.name} 
-                                        value={person.name} 
-                                        onChange={handleConsumerCheckboxChange}
-                                    /> 
-                                    {person.name}
-                                </label>
-                                <br />
-                            </>
+                            <option value={person.name}>{person.name}</option>
                         )
                     })
                 }
+            </select>
 
-                <div className="form-submit">
-                    <input type="submit" value="Add payment!" />
-                </div>
-            </form>
+            <label htmlFor="amount-payed">Amount</label>
+            <input type="number" name="amount-payed" onChange={handleAmountInputChange} />
+
+            {
+                names.map(person => {
+                    const check = consumers.includes(person.name)
+                    return (
+                        <>
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    checked={check}
+                                    id={person.name} 
+                                    value={person.name} 
+                                    onChange={handleConsumerCheckboxChange}
+                                /> 
+                                {person.name}
+                            </label>
+                            <br />
+                        </>
+                    )
+                })
+            }
+
+            <div className="form-submit">
+                <input type="submit" value="Add payment!" />
+            </div>
+
+            <button onClick={cancelNewPayment}>Cancel payment</button>
+        </form>
   )
 }
