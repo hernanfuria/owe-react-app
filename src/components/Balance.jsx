@@ -1,22 +1,10 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { GlobalContext } from "./context/GlobalContext"
-import { DebtMatrix } from "../resources/DebtMatrix"
 import { TotalPayedList } from "./TotalPayedList"
+import { DebtsList } from "./DebtsList"
 
 export const Balance = () => {
-    const {names, payments, navigate} = useContext(GlobalContext)
-
-    const [listOfDebts, setListOfDebts] = useState([])
-
-    useEffect(() => {
-        let debtMatrix = new DebtMatrix(names.map(person => {return person.name}));
-        for (const payment of payments) {
-            debtMatrix.addPayment(payment)
-        }
-
-        setListOfDebts(debtMatrix.resolve())
-    }, [])
-    
+    const {navigate} = useContext(GlobalContext)
 
     const backToPayments = () => {
         navigate('/paymentslist')
@@ -28,13 +16,7 @@ export const Balance = () => {
 
             <TotalPayedList />
 
-            {
-                listOfDebts.map(debt => {
-                    return (
-                        <p>{debt.giver} owes {debt.amount} to {debt.receiver}</p>
-                    )
-                })
-            }
+            <DebtsList />
 
             <button onClick={backToPayments}>Back to payments</button>
         </>
