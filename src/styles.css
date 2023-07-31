@@ -1,6 +1,100 @@
+:root {
+    --background-color: #181818;
+    --main-text-color: beige;
+    --default-neutral-color: rgb(78, 78, 78);
+    --warning-color: rgb(255, 108, 108);
+    --control-color: rgb(71, 71, 236);
+    --exec-color: rgb(55, 223, 55);
+}
+
 body {
     margin: 0;
-    background-color: #181818;
-    color: beige;
+    background-color: #143009;
+    background-image: url("../img/waves2.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+    background-blend-mode: multiply;
+
+    color: var(--main-text-color);
     font-family: 'Courier New', Courier, monospace;
+}
+.names-input-form {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+
+    width: 350px;
+    padding: 20px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 30px;
+    margin: 20px auto;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.names-form-line {
+    padding: 2px 0;
+}
+
+.form-label {
+    height: 20px;
+    background-color: var(--default-neutral-color);
+    color: var(--background-color);
+    padding: 4px 3px;
+    border: 1px solid var(--default-neutral-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.form-input {
+    height: 20px;
+    background-color: var(--background-color);
+    padding: 3px 5px;
+    border: 1px solid var(--default-neutral-color);
+    /*border-radius: 10px;*/
+    color: var(--main-text-color);
+}
+
+.discard-button {
+    height: 26px;
+    background-color: var(--background-color);
+    color: var(--warning-color);
+    padding: 2px 10px;
+    border: 1px solid var(--warning-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+}
+
+.discard-button:hover {
+    background-color: var(--warning-color);
+    color: var(--background-color);
+}
+
+.button-add {
+    height: 30px;
+    width: 30px;
+    background-color: var(--background-color);
+    color: var(--control-color);
+    font-size: 24px;
+    padding-top: 1px;
+    border: 2px solid var(--control-color);
+    border-radius: 20px;
+    margin: 5px auto;
+}
+
+.button-add:hover {
+    background-color: var(--control-color);
+    color: var(--background-color);
+}
+
+.form-submit {
+    text-decoration: none;
+    height: 26px;
+    background-color: var(--background-color);
+    color: var(--exec-color);
+    padding: 2px 10px;
+    border: 1px solid var(--exec-color);
+    border-radius: 10px;
 }

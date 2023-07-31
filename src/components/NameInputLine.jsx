@@ -27,7 +27,7 @@ export const NameInputLine = ({names, setNames, name, id, handleRemovePerson}) =
                 className="discard-button"
                 onClick={() => handleRemovePerson(id)}
             >
-                Remove
+                X
             </button>
         </div>
     )
