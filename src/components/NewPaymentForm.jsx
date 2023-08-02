@@ -68,46 +68,53 @@ export const NewPaymentForm = () => {
             <span className="form-title">New payment</span>
             <br />
 
-            <label htmlFor="payer-name">Person who payed</label>
-            <select name="payer-name" id="select-payer-name" onChange={handlePayerSelectChange}>
+            <div className="payer-selector">
+                <label className="form-label" htmlFor="payer-name">Person who payed</label>
+                <select className="form-select" name="payer-name" id="select-payer-name" onChange={handlePayerSelectChange}>
+                    {
+                        names.map(person => {
+                            return (
+                                <option value={person.name}>{person.name}</option>
+                            )
+                        })
+                    }
+                </select>
+            </div>
+
+            <div className="payed-amount">
+                <label className="form-label" htmlFor="amount-payed">Amount</label>
+                <input className="form-input rightest" type="number" name="amount-payed" onChange={handleAmountInputChange} />
+            </div>
+
+            <div className="consumers-checkboxes">
+                <span className="payments-fill">Consumers</span>
                 {
                     names.map(person => {
+                        const check = consumers.includes(person.name)
                         return (
-                            <option value={person.name}>{person.name}</option>
+                            <div className="checkbox-wrapper-47">
+                                    <input 
+                                        type="checkbox" 
+                                        checked={check}
+                                        id={person.name} 
+                                        value={person.name} 
+                                        onChange={handleConsumerCheckboxChange}
+                                        /> 
+                                <label htmlFor={person.name}>
+                                    {person.name}
+                                </label>
+                                <br />
+                            </div>
                         )
                     })
                 }
-            </select>
-
-            <label htmlFor="amount-payed">Amount</label>
-            <input type="number" name="amount-payed" onChange={handleAmountInputChange} />
-
-            {
-                names.map(person => {
-                    const check = consumers.includes(person.name)
-                    return (
-                        <>
-                            <label>
-                                <input 
-                                    type="checkbox" 
-                                    checked={check}
-                                    id={person.name} 
-                                    value={person.name} 
-                                    onChange={handleConsumerCheckboxChange}
-                                /> 
-                                {person.name}
-                            </label>
-                            <br />
-                        </>
-                    )
-                })
-            }
-
-            <div className="form-submit">
-                <input type="submit" value="Add payment!" />
             </div>
 
-            <button onClick={cancelNewPayment}>Cancel payment</button>
+            <div className="form-control">
+                <button className="cancel-payment" onClick={cancelNewPayment}>Cancel payment</button>
+                <input className="form-submit next" type="submit" value="Add payment" />
+            </div>
+
         </form>
   )
 }
