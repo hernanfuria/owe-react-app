@@ -1,8 +1,13 @@
 export const DebtsListItem = ({giver, amount, receiver}) => {
     return (
-        <>
-            <span>{giver} owes {amount} to {receiver}</span>
+        <div className="debts-list-item">
+            
+            <span>{giver}</span>
+            <span className="payments-fill"> owes </span>
+            <span>{amount}</span>
+            <span className="payments-fill"> to </span>
+            <span>{receiver}</span>
             <br />
-        </>
+        </div>
     )
 }

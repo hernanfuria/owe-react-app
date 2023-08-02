@@ -31,7 +31,7 @@ export const TotalPayedList = () => {
     return (
         <div className="total-payed-list">
             <span className="form-title">Total Spendings</span>
-            <br />
+            <br /><br />
             {
                 totalPayed.map(payed => {
                     return (

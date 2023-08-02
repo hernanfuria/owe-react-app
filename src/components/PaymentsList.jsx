@@ -37,7 +37,7 @@ export const PaymentsList = () => {
             }
 
             <div className="form-control">
-                <button className='button-back-to-names back' onClick={backToNames}>Back to names</button>
+                <button className='button-back-to-names' onClick={backToNames}>Back to names</button>
                 <button className='button-add new' onClick={newPayment}>+</button>
                 <button className='form-submit next' onClick={seeBalance}>Balance</button>
             </div>

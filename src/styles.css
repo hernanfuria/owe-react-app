@@ -182,7 +182,7 @@ body {
 
 /*---------------------------------------------------------------------------*/
 
-.payments-list, .payment-input-form, .total-payed-list {
+.payments-list, .payment-input-form, .balance {
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(4px);
@@ -364,4 +364,45 @@ border-color: var(--exec-color);
 .checkbox-wrapper-47 label,
 .checkbox-wrapper-47 label::before {
 transition: 0.25s all ease;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.total-payed-list, .debts-list {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border: 1px solid var(--default-neutral-color);
+    border-radius: 10px;
+    margin: 4px 0;
+}
+
+.back {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--main-text-color);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 30px;
+    border: 1px solid var(--default-neutral-color);
+    border-radius: 20px 10px 10px 20px;
+    margin: auto;
+    transition-duration: var(--button-transition-duration);
+}
+
+.back:disabled {
+    color: var(--default-neutral-color);
+}
+
+.back:hover {
+    background-color: var(--default-neutral-color-transparent);
+    color: var(--main-text-color);
+}
+
+.back:active {
+    background-color: var(--default-neutral-color);
+    color: var(--main-text-color);
+    border-color: var(--default-neutral-color);
+    /*
+    padding-top: 6px;
+    padding-bottom: 4px;
+    */
 }

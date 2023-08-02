@@ -11,14 +11,21 @@ export const Balance = () => {
     }
 
     return (
-        <>
-            <div>Balance</div>
+        <div className="balance">
+            <span className="form title">Balance</span>
 
             <TotalPayedList />
 
             <DebtsList />
 
-            <button onClick={backToPayments}>Back to payments</button>
-        </>
+            <div className="form-control">
+                <button 
+                    className="back" 
+                    onClick={backToPayments}
+                >
+                        Back to payments
+                </button>
+            </div>
+        </div>
     )
 }

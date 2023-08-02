@@ -18,8 +18,9 @@ export const DebtsList = () => {
     }, [])
 
     return (
-        <>
-            <h1>Debts</h1>
+        <div className="debts-list">
+            <span className="form-title">Debts</span>
+            <br /> <br />
             {
                 listOfDebts.map(debt => {
                     return (
@@ -27,6 +28,6 @@ export const DebtsList = () => {
                     )
                 })
             }
-        </>
+        </div>
     )
 }
