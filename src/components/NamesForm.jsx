@@ -5,17 +5,47 @@ import { NameInputLine } from "./NameInputLine"
 import { GlobalContext } from "./context/GlobalContext"
 
 
+const initNames = [
+    {
+        name: '',
+        id: 1,
+    },
+    {
+        name: '',
+        id: 2,
+    },
+    {
+        name: '',
+        id: 3,
+    }
+]
+
 export const NamesForm = () => {
     const {names, setNames, setPayments, setNamesDefined, navigate} = useContext(GlobalContext)
 
+    const [canSubmit, setCanSubmit] = useState(false)
 
     useEffect(() => {
-        setNames([])
+        let submitEnabled = true
+        for (const person of names) {
+            if (person.name == '') {
+                submitEnabled = false
+                break
+            }
+        }
+        console.log(submitEnabled)
+        setCanSubmit(submitEnabled)
+
+    }, [names])
+    
+
+    useEffect(() => {
+        setNames(initNames)
         setPayments([])
     }, [])
     
 
-    const [idsCounter, setIdsCounter] = useState(0)
+    const [idsCounter, setIdsCounter] = useState(10)
 
     const incrementIdCounter = () => {
         setIdsCounter(idsCounter + 1)
@@ -55,9 +85,13 @@ export const NamesForm = () => {
 
             <div className="form-control">
                 <button className="button-add" onClick={handleNewPerson}>+</button>
-                <input type="submit" className="form-submit" value="Ready!" />
+                <input 
+                    type="submit" 
+                    disabled={canSubmit ? false : true}
+                    className="form-submit" 
+                    value="Ready!" 
+                />
             </div>
-            {/*<button onClick={setNamesDefined}>Ready!</button>*/}
         </form>
     )
 }

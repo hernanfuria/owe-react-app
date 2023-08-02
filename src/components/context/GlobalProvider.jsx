@@ -5,15 +5,15 @@ import { useNavigate } from "react-router-dom"
 
 const testNames = [
     {
-        name: 'juan',
+        name: '',
         id: 1,
     },
     {
-        name: 'carlos',
+        name: '',
         id: 2,
     },
     {
-        name: 'roberto',
+        name: '',
         id: 3,
     }
 ]
@@ -45,8 +45,8 @@ export const GlobalProvider = ({children}) => {
 
     // const [user, setUser] = useState()
 
-    const [names, setNames] = useState(testNames)
-    const [payments, setPayments] = useState(testPayments)
+    const [names, setNames] = useState([])
+    const [payments, setPayments] = useState([])
     const [paymentsIdsCounter, setPaymentsIdsCounter] = useState(0)
     const [namesDefined, setNamesDefined] = useState(false)
 
