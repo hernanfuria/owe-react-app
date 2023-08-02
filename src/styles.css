@@ -142,8 +142,10 @@ body {
     background-color: var(--control-color-transparent);
     color: var(--main-text-color);
     border-color: var(--control-color);
+    /*
     padding-top: 2px;
     padding-bottom: 0px;
+    */
 }
 
 .form-submit {
@@ -171,8 +173,11 @@ body {
     background-color: var(--exec-color-transparent);
     color: var(--main-text-color);
     border-color: var(--exec-color);
+    /*
     padding-top: 6px;
     padding-bottom: 4px;
+    transition: none;
+    */
 }
 
 /*---------------------------------------------------------------------------*/
@@ -254,8 +259,10 @@ body {
     background-color: var(--warning-color-transparent);
     color: var(--main-text-color);
     border-color: var(--warning-color);
+    /*
     padding-top: 3px;
     padding-bottom: 1px;
+    */
 }
 
 .button-back-to-names {
@@ -283,6 +290,11 @@ body {
     background-color: var(--warning-color-transparent);
     color: var(--main-text-color);
     border-color: var(--warning-color);
+    /*
     padding-top: 6px;
     padding-bottom: 4px;
+    */
 }
+
+/*---------------------------------------------------------------------------*/
+
