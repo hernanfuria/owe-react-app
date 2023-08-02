@@ -9,8 +9,6 @@ export const OweApp = () => {
     return (
         <GlobalProvider>
             <h1 className="logo">OWE</h1>
-            <hr />
-            
             
             <Routes>
                 <Route path="/" element={ <NamesForm /> } />

@@ -23,6 +23,23 @@ body {
 
     color: var(--main-text-color);
     font-family: 'Courier New', Courier, monospace;
+
+    text-align: center;
+}
+
+/*---------------------------------------------------------------------------*/
+
+.logo {
+    background: -webkit-linear-gradient(var(--main-text-color), var(--exec-color-transparent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+
+    margin: 30px auto 30px auto;
 }
 
 /*---------------------------------------------------------------------------*/
