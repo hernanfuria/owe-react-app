@@ -53,10 +53,9 @@ export const NamesForm = () => {
                 })
             }
 
-            <button className="button-add" onClick={handleNewPerson}>+</button>
-
-            <div className="form-submit">
-                <input type="submit" value="Ready!" />
+            <div className="form-control">
+                <button className="button-add" onClick={handleNewPerson}>+</button>
+                <input type="submit" className="form-submit" value="Ready!" />
             </div>
             {/*<button onClick={setNamesDefined}>Ready!</button>*/}
         </form>
