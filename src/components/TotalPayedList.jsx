@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "./context/GlobalContext"
-import { TotalPayedListItem } from "../TotalPayedListItem"
+import { TotalPayedListItem } from "./TotalPayedListItem"
 
 export const TotalPayedList = () => {
     const {names, payments, navigate} = useContext(GlobalContext)
