@@ -29,8 +29,8 @@ export const TotalPayedList = () => {
     
 
     return (
-        <>
-            <h1>Total Spendings</h1>
+        <div className="total-payed-list">
+            <span className="form-title">Total Spendings</span>
             <br />
             {
                 totalPayed.map(payed => {
@@ -39,6 +39,6 @@ export const TotalPayedList = () => {
                     )
                 })
             }
-        </>
+        </div>
     )
 }

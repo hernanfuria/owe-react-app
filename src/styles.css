@@ -182,7 +182,7 @@ body {
 
 /*---------------------------------------------------------------------------*/
 
-.payments-list, .payment-input-form {
+.payments-list, .payment-input-form, .total-payed-list {
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     backdrop-filter: blur(4px);
