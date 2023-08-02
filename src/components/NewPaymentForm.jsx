@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "./context/GlobalContext"
 
 export const NewPaymentForm = () => {
@@ -7,6 +7,18 @@ export const NewPaymentForm = () => {
     const [payer, setPayer] = useState(names[0].name)
     const [amount, setAmount] = useState(0)
     const [consumers, setConsumers] = useState(names.map(person => {return person.name}))
+
+
+    const [canSubmit, setCanSubmit] = useState(false)
+
+    useEffect(() => {
+        let submitEnabled = true
+        submitEnabled = submitEnabled && (amount > 0)
+        submitEnabled = submitEnabled && (consumers.length > 0)
+
+        setCanSubmit(submitEnabled)
+
+    }, [amount, consumers])
 
     const handlePayerSelectChange = ({target}) => {
         setPayer(target.value)
@@ -93,13 +105,13 @@ export const NewPaymentForm = () => {
                         const check = consumers.includes(person.name)
                         return (
                             <div className="checkbox-wrapper-47">
-                                    <input 
-                                        type="checkbox" 
-                                        checked={check}
-                                        id={person.name} 
-                                        value={person.name} 
-                                        onChange={handleConsumerCheckboxChange}
-                                        /> 
+                                <input 
+                                    type="checkbox" 
+                                    checked={check}
+                                    id={person.name} 
+                                    value={person.name} 
+                                    onChange={handleConsumerCheckboxChange}
+                                /> 
                                 <label htmlFor={person.name}>
                                     {person.name}
                                 </label>
@@ -112,7 +124,12 @@ export const NewPaymentForm = () => {
 
             <div className="form-control">
                 <button className="cancel-payment" onClick={cancelNewPayment}>Cancel payment</button>
-                <input className="form-submit next" type="submit" value="Add payment" />
+                <input 
+                    className="form-submit next" 
+                    type="submit" 
+                    disabled={canSubmit ? false : true}
+                    value="Add payment" 
+                />
             </div>
 
         </form>
