@@ -84,11 +84,11 @@ export const NamesForm = () => {
             }
 
             <div className="form-control">
-                <button className="button-add" onClick={handleNewPerson}>+</button>
+                <button className="button-add new" onClick={handleNewPerson}>+</button>
                 <input 
                     type="submit" 
                     disabled={canSubmit ? false : true}
-                    className="form-submit" 
+                    className="form-submit next" 
                     value="Ready!" 
                 />
             </div>

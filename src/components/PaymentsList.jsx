@@ -25,9 +25,8 @@ export const PaymentsList = () => {
     }
 
     return (
-        <>
-            <h1>Payments done</h1>
-            <hr />
+        <div className='payments-list'>
+            <span className='payments-list-title'>Payments done</span>
 
             {
                 payments.map(payment => {
@@ -37,11 +36,13 @@ export const PaymentsList = () => {
                 })
             }
 
-            <button onClick={backToNames}>Back to names</button>
-            <button onClick={newPayment}>New payment</button>
-            <button onClick={seeBalance}>See balance!</button>
+            <div className="form-control">
+                <button className='button-back-to-names back' onClick={backToNames}>Back to names</button>
+                <button className='button-add new' onClick={newPayment}>+</button>
+                <button className='form-submit next' onClick={seeBalance}>Balance</button>
+            </div>
 
 
-        </>
+        </div>
     )
 }
