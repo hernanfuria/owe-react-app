@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState } from "react"
 import { NameInputLine } from "./NameInputLine"
 import { GlobalContext } from "./context/GlobalContext"
+import { arrayHasRepeatedElement } from "../resources/Common"
 
 
 
@@ -13,14 +14,23 @@ export const NamesForm = () => {
     
     useEffect(() => {
         let submitEnabled = true
+
+        // check empty names
         for (const person of names) {
             if (person.name == '') {
                 submitEnabled = false
                 break
             }
         }
+
+        // check for repeated names
+        if (names.length > 1) {
+            submitEnabled = submitEnabled && !arrayHasRepeatedElement(names.map(person => {return person.name}))
+        }
+
+        // check 3 or more names are entered
         submitEnabled = submitEnabled && (names.length >= 3)
-        console.log(submitEnabled)
+
         setCanSubmit(submitEnabled)
     }, [names])
     
