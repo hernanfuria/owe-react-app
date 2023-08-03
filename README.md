@@ -12,4 +12,4 @@ This will run the app in the described localpath port, go to it on your web brow
 
 ### Web
 Visit the app deployed in GitHub Pages:
-
+https://hernanfuria.github.io/owe-react-app/
