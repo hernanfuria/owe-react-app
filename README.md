@@ -1,8 +1,15 @@
-# React + Vite
+# Owe (React app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app lets you input a set of names, a set of payments done, and then it shows you the balance of spendings and the list of debts.
 
-Currently, two official plugins are available:
+## How to run
+### Local
+If you want to run the app locally, you need to have `yarn` installed. Once you cloned the repository, `cd` to its path and run
+```console
+yarn dev
+```
+This will run the app in the described localpath port, go to it on your web browser and thats it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Web
+Visit the app deployed in GitHub Pages:
+
