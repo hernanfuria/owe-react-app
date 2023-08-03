@@ -37,7 +37,7 @@ export const PaymentsList = () => {
             {
                 payments.map(payment => {
                     return (
-                        <PaymentsListItem payment={payment} removePayment={removePayment} />
+                        <PaymentsListItem payment={payment} removePayment={removePayment} key={payment.id} />
                     )
                 })
             }
