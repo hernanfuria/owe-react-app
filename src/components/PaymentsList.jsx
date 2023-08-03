@@ -1,11 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from './context/GlobalContext'
 import { PaymentsListItem } from './PaymentsListItem'
 
 export const PaymentsList = () => {
     const {payments, setPayments, setNamesDefined, navigate} = useContext(GlobalContext)
 
-    
+    const [canSubmit, setCanSubmit] = useState(false)
+
+    useEffect(() => {
+        let submitEnabled = true
+        submitEnabled = submitEnabled && (payments.length > 0)
+        setCanSubmit(submitEnabled)
+    }, [payments])
 
     const backToNames = () => {
         setNamesDefined(false)
@@ -39,7 +45,13 @@ export const PaymentsList = () => {
             <div className="form-control">
                 <button className='button-back-to-names' onClick={backToNames}>Back to names</button>
                 <button className='button-add new' onClick={newPayment}>+</button>
-                <button className='form-submit next' onClick={seeBalance}>Balance</button>
+                <button 
+                    className='form-submit next' 
+                    disabled={canSubmit ? false : true}
+                    onClick={seeBalance}
+                >
+                    Balance
+                </button>
             </div>
 
 
