@@ -5,26 +5,12 @@ import { NameInputLine } from "./NameInputLine"
 import { GlobalContext } from "./context/GlobalContext"
 
 
-const initNames = [
-    {
-        name: '',
-        id: 1,
-    },
-    {
-        name: '',
-        id: 2,
-    },
-    {
-        name: '',
-        id: 3,
-    }
-]
 
 export const NamesForm = () => {
     const {names, setNames, setPayments, setNamesDefined, navigate} = useContext(GlobalContext)
-
+    
     const [canSubmit, setCanSubmit] = useState(false)
-
+    
     useEffect(() => {
         let submitEnabled = true
         for (const person of names) {
@@ -33,12 +19,26 @@ export const NamesForm = () => {
                 break
             }
         }
+        submitEnabled = submitEnabled && (names.length >= 3)
         console.log(submitEnabled)
         setCanSubmit(submitEnabled)
-
     }, [names])
     
-
+    const initNames = [
+        {
+            name: '',
+            id: 1,
+        },
+        {
+            name: '',
+            id: 2,
+        },
+        {
+            name: '',
+            id: 3,
+        }
+    ]
+    
     useEffect(() => {
         setNames(initNames)
         setPayments([])

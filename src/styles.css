@@ -15,8 +15,9 @@
 
 body {
     margin: 0;
-    background-color: #143009;
-    background-image: url("../img/waves2.jpg");
+    /*background-color: #143009;*/
+    background-color: rgb(28, 53, 32);
+    background-image: url("../img/money.jpg");
     background-repeat: repeat-y;
     background-size: cover;
     background-blend-mode: multiply;
