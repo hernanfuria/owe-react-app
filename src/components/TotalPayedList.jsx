@@ -22,9 +22,7 @@ export const TotalPayedList = () => {
                 }
             }
         }
-        console.log(payed)
         setTotalPayed([ ...payed ])
-        console.log(totalPayed)
     }, [])
     
 

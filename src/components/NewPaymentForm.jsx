@@ -54,7 +54,6 @@ export const NewPaymentForm = () => {
                 sortedConsumers.push(person.name)
             }
         }
-        console.log(sortedConsumers)
 
         setPayments(
             [
